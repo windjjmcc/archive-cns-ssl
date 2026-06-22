@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>南宫28 · 再次遇见</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fafafa;
+      color: #1e2b3c;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+
+    ::selection {
+      background: #d4e2ed;
+      color: #0d1b2a;
+    }
+
+    .wrapper {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 顶部导航 */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 0 12px;
+      border-bottom: 1px solid #e6edf2;
+      margin-bottom: 56px;
+    }
+
+    .nav-logo {
+      font-size: 1.35rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #1e3a5f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #3b4f62;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #0b2a44;
+    }
+
+    /* hero */
+    .hero {
+      margin-bottom: 64px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 450;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #0b2a44;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #2c4056;
+      max-width: 600px;
+    }
+
+    .hero .muted {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 6px 14px;
+      background: #edf3f8;
+      color: #284a63;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      border: 1px solid #dce6ef;
+    }
+
+    /* 核心介绍卡片 */
+    .intro-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 36px 32px;
+      margin-bottom: 56px;
+      box-shadow: 0 4px 14px rgba(0, 24, 44, 0.03);
+      border: 1px solid #eef2f6;
+    }
+
+    .intro-card h2 {
+      font-size: 1.5rem;
+      font-weight: 450;
+      margin-bottom: 20px;
+      color: #13314d;
+    }
+
+    .intro-card p {
+      margin-bottom: 18px;
+      color: #1e3349;
+    }
+
+    .intro-card a {
+      color: #1f4d74;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 0.5px;
+      transition: color 0.2s;
+    }
+
+    .intro-card a:hover {
+      color: #0a2f4b;
+    }
+
+    /* 三个场景模块 */
+    .scenes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-bottom: 64px;
+    }
+
+    .scene-item {
+      flex: 1 1 200px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 28px 20px 24px;
+      border: 1px solid #edf2f8;
+      transition: box-shadow 0.2s;
+    }
+
+    .scene-item:hover {
+      box-shadow: 0 6px 20px rgba(0, 30, 60, 0.04);
+    }
+
+    .scene-item .icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #2f5370;
+    }
+
+    .scene-item h3 {
+      font-weight: 500;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      color: #1c3a54;
+    }
+
+    .scene-item p {
+      color: #2e4a64;
+      font-size: 0.95rem;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-section {
+      margin-bottom: 48px;
+    }
+
+    .faq-section h2 {
+      font-size: 1.4rem;
+      font-weight: 450;
+      margin-bottom: 28px;
+      color: #13314d;
+    }
+
+    .faq-item {
+      padding: 16px 0;
+      border-bottom: 1px solid #e5edf5;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item .q {
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #1f3f5a;
+    }
+
+    .faq-item .a {
+      color: #38536e;
+      font-size: 0.95rem;
+    }
+
+    .faq-item a {
+      color: #1f4d74;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .faq-item a:hover {
+      color: #0b2f4d;
+    }
+
+    /* 页脚 */
+    .footer {
+      padding: 28px 0 40px;
+      border-top: 1px solid #e6edf2;
+      font-size: 0.9rem;
+      color: #476079;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer a {
+      color: #2f4f6d;
+      text-decoration: none;
+      border-bottom: 1px dotted #bccddc;
+    }
+
+    .footer a:hover {
+      border-bottom-color: #1f3f5a;
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-top: 20px;
+      }
+
+      .nav-links {
+        gap: 20px;
+        font-size: 0.9rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .intro-card {
+        padding: 28px 20px;
+      }
+
+      .scenes {
+        flex-direction: column;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- 导航 -->
+  <nav class="nav">
+    <span class="nav-logo">· 再次遇见</span>
+    <ul class="nav-links">
+      <li><a href="#">简述</a></li>
+      <li><a href="#">场景</a></li>
+      <li><a href="#">常问</a></li>
+    </ul>
+  </nav>
+
+  <!-- hero -->
+  <header class="hero">
+    <h1>收藏一处角落，<br>持续关注便有了回响。</h1>
+    <p>不是每一次访问都是初次。有时候你回来，是因为记得这里曾给过你清晰的感受。</p>
+    <span class="muted">· 再次访问的默契</span>
+  </header>
+
+  <!-- 核心介绍（含链接） -->
+  <section class="intro-card">
+    <h2>南宫28 · 一处安静的所在</h2>
+    <p>
+      有些站点会让人想存进书签，隔段时间再回来看看。<a href="https://page-cn-nangong28.com">南宫28</a> 便是其中之一。
+      它不喧哗，不催促，只是持续地提供一些值得阅读和回味的页面。
+    </p>
+    <p>
+      如果你曾路过这里，又再次点开，那说明某种契合已经发生。收藏它，像藏起一枚安静的书签；持续关注，则像慢慢翻阅一本没有封底的书。
+    </p>
+  </section>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes">
+    <div class="scene-item">
+      <div class="icon">☕</div>
+      <h3>零碎时间的回访</h3>
+      <p>泡杯茶，打开收藏夹，点开熟悉的链接。不用重新寻找，你已经知道那里有什么。</p>
+    </div>
+    <div class="scene-item">
+      <div class="icon">📎</div>
+      <h3>随手记下的线索</h3>
+      <p>读到一半的内容、无意间发现的界面，下次再打开，仍能顺着上次的思绪继续。</p>
+    </div>
+    <div class="scene-item">
+      <div class="icon">🔖</div>
+      <h3>持续翻阅的习惯</h3>
+      <p>关注一个地方，就像订阅一种语气。它不多不少，恰好在你需要的时候出现。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <section class="faq-section">
+    <h2>一些你可能想了解的</h2>
+
+    <div class="faq-item">
+      <div class="q">为什么我应当再次访问？</div>
+      <div class="a">因为内容会沉淀，常看常新。把 <a href="https://page-cn-nangong28.com">南宫28</a> 放进书签，每次回来都像翻开同一本书的不同章节。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">收藏后如何快速找到？</div>
+      <div class="a">浏览器书签栏或收藏夹均可。给它一个简短的名字，比如「南宫」，下次输入时便会想起。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">这里的内容会频繁变化吗？</div>
+      <div class="a">不追求剧烈变动，更在意稳定更新。每次来访都有一点新意，但不至于陌生。</div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <span>持续关注 · 南宫28</span>
+    <span>
+      <a href="https://page-cn-nangong28.com">南宫28</a>  ·  2025
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
